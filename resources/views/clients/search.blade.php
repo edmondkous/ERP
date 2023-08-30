@@ -72,14 +72,22 @@
             </table>
             </div>
 
+
                 <div class="card-footer clearfix">
                     <ul class="pagination pagination-sm m-0 float-right">
                         {{$clients->links()}}
                     </ul>
                 </div>
+
             </div>
+
             <!-- /.card-body -->
         </div>
+
+        @if (request()->input())
+            <h4>{{$clients->total()}} résultat(s) pour la recherche.</h4>
+        @endif
+
     </div>
         <!-- /.card -->
     </div>

@@ -55,4 +55,21 @@ class ClientController extends Controller
 
 
     }
+
+    //rechercher un client a  travers des mots clés
+    public function search()
+    {
+        $q = request()-> input('q');
+
+        $clients = Client::where('nom','like', "%$q%")
+            ->orWhere('prenom','like', "%$q%")
+            ->orWhere('telephone','like', "%$q%")
+            ->orWhere('email','like', "%$q%")
+            ->orWhere('adresse','like', "%$q%")
+            ->paginate(10);
+
+            return view('clients.search')->with('clients', $clients);
+
+
+    }
 }

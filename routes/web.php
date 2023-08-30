@@ -43,6 +43,9 @@ Route::group(['middleware'=>'auth'], function(){
         Route::get('/create',[ClientController::class, 'create'])->name('clients.create');
         Route::post('/create',[ClientController::class, 'store'])->name('clients.store');
         Route::get('/edit',[ClientController::class, 'edit'])->name('clients.edit');
+        Route::get('/search',[ClientController::class, 'search'])->name('clients.search');
+
+
         Route::get('/downloadPDF',[ClientController::class, 'downloadPDF'])->name('clients.pdf_client');
 
 
